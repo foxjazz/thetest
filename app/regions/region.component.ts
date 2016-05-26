@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import {Region, ISystem} from './IRegions';
 import { HTTPEveService } from './http-eve.service';
 import {HTTP_PROVIDERS} from '@angular/http';
+//import {localStorage} from '../Utilities/localStorageModule';
 import 'rxjs/Rx';
 
 //import {Regions} from './mock2-Regions';
@@ -55,7 +56,7 @@ export class RegionComponent implements OnInit {
         this.selSystems = new Array<ISystem>();
       }
         this.selSystems.push(system);
-       // localStorage.setItem('Systems', this.selSystems.toString())
+        localStorage.setItem('Systems', this.selSystems.toString());
     }
     
       public onSelectRegion(region: Region) {

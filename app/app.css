@@ -1,3 +1,44 @@
+.halblue {
+    background-color: #CFD8DC !important;
+      color: black;
+}
+
+.halblue li{
+  color: darkslateblue
+}
+.halselected{
+   background-color: #CFD8DC !important;
+      color: black;
+}
+.hal{
+   margin: 0 0 2em 0;
+      list-style-type: none;
+      padding: 0;
+      width: 15em;
+}
+ .hal li {
+      cursor: pointer;
+      position: relative;
+      left: 0;
+      background-color: #EEE;
+      margin: .5em;
+      padding: .3em 0;
+      height: 3.6em;
+      border-radius: 4px;
+    }
+    .hal li.selected:hover {
+      background-color: #BBD8DC !important;
+      color: #FF4444;
+    }
+    .hal li:hover {
+      color: #FF9977;
+      background-color: #DDD;
+      left: .1em;
+    }
+    .hal .text {
+      position: relative;
+      top: -3px;
+    }
 .selected {
       background-color: #CFD8DC !important;
       color: black;

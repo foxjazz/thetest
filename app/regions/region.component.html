@@ -17,12 +17,19 @@
             </li>
       </ul>
       </div>
-      <div class="col-xs-4">
-       <ul class=heroes>
-             <li *ngFor="let System of avSystems">
+      <div class="col-xs-5">
+        <h3> >>>  Systems </h3>
+       <ul class=hal>
+             <li *ngFor="let System of avSystems" [class.halselected]="hal === selectedHal" (click)="onSelectStation(System)">
                 {{ System.location.name }} 
              </li>
-           </ul>
+        </ul>
+         <h3> >>>  Selected Stations </h3>
+        <ul class=halblue>
+             <li *ngFor="let System of selSystems" [class.halselected]="hal === selectedHal" >
+                {{ System.location.name }} 
+             </li>
+        </ul>
       </div>
   </div>
   <h2> loading status = {{loaded}} </h2>
