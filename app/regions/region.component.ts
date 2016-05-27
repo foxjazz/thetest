@@ -103,10 +103,10 @@ export class RegionComponent implements OnInit {
          res = localStorage.getItem('Systems');
          
          var restry = JSON.parse(res);
-         console.log('res string from localstorage');
+         /*console.log('res string from localstorage');
          console.log(res);
          console.log('object restry from localstorage');
-         console.log (restry);
+         console.log (restry);*/
          var first = restry.length && restry[0];
          const isd = new TypeValidator<ISystem[]>([ISystemDescriptor]);
         if(first) {
