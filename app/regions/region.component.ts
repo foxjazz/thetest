@@ -26,6 +26,7 @@ export class RegionComponent implements OnInit {
     private loaded = false;
     public avSystems: Array<ISystem>;
     private selRegion: Region;
+    private tempSys: Array<ISystem>;
     public selSystems: Array<ISystem>;
       constructor(private eveService: HTTPEveService) { }
       
@@ -50,13 +51,33 @@ export class RegionComponent implements OnInit {
           }
         return res;
       };
-
+      public onRemoveStation(system: ISystem)
+      {
+        this.tempSys = this.selSystems;
+        this.selSystems = new Array<ISystem>();
+        let i = 0;
+        for (i = 0; i < this.tempSys.length; i++) {
+          if (system === this.tempSys[i]) {
+            continue;
+          }
+          this.selSystems.push(this.tempSys[i]);
+        }
+      }
     public onSelectStation(system: ISystem){
       if(this.selSystems == null){
         this.selSystems = new Array<ISystem>();
       }
+      let i = 0;
+        for (i = 0; i < this.selSystems.length; i++) {
+          if (system === this.selSystems[i]) {
+            return;
+          }
+        }
         this.selSystems.push(system);
-        localStorage.setItem('Systems', this.selSystems.toString());
+        //JSON.stringify(this.selSystems);
+       /* let data: Array<ISystem>;
+        data = JSON.parse(JSON.stringify(this.selSystems));*/
+        localStorage.setItem('Systems', JSON.stringify(this.selSystems));
     }
     
       public onSelectRegion(region: Region) {
@@ -67,7 +88,12 @@ export class RegionComponent implements OnInit {
       }
 
      getRegions(){
-         //this.regions = localforage.getItem("Regions");
+        let res: string;
+         let data: Array<ISystem>;
+         res = localStorage.getItem('Systems');
+         // first I  need to know if data is compantible with res
+        // data = JSON.parse(res);
+         
          this.eveService.getRegions().subscribe(res => {
                 this.Regs =  res.items.filter(function(el: Region): boolean{
                   if(isNaN(+el.name.slice(-1)))
@@ -78,11 +104,7 @@ export class RegionComponent implements OnInit {
                 if (this.Regs.length > 0){
                   this.loaded = true;
                 }
-                //.filter(function (item: any) {
-                  //  if (this.isNumeric(item.name.substring(item.name.length - 1)) === false){
-                    //    return item;
-                    //}
-                //});
+                
             });
         
      }

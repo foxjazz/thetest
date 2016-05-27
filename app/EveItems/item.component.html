@@ -1,0 +1,22 @@
+<h1>{{title}}</h1>
+    
+    <h2> Please pick your items </h2>
+    <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+    <div class="row">
+      <div class="col-xs-4">
+      <ul class=heroes>
+          <li *ngFor="let ItemType of allItemTypes" [class.selected]="hero === selectedHero" (click)="onSelectItem(Region)">
+            <span class="badge">{{ItemType.type.id_str}}</span> {{ ItemType.type.name }}
+          </li>
+      </ul>
+      </div>
+      <div class="col-xs-5">
+        <h3> >>>  Systems </h3>
+         <h3> >>>  Selected Items </h3>
+        <ul class=halblue>
+             <li *ngFor="let ItemType of selItemTypes" [class.halselected]="hal === selectedHal" (click)="onRemoveItem(System)">
+                {{ ItemType.type.name }} 
+             </li>
+        </ul>
+      </div>
+  </div>

@@ -1,3 +1,33 @@
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.router-link-active {
+  color: #039be5;
+}
+
+horizontal li{
+    display: inline-block;
+    zoom:1;
+    *display:inline; /* this fix is needed for IE7- */
+}
+.visible {
+    display: block
+}
+.hidden {
+  display: none
+}
 .halblue {
     background-color: #CFD8DC !important;
       color: black;
@@ -6,6 +36,17 @@
 .halblue li{
   color: darkslateblue
 }
+
+ .hal li.selected:hover {
+      background-color: #BBD8DC !important;
+      color: #FF4444;
+    }
+    .hal li:hover {
+      color: #555555;
+      background-color: #DDD;
+      left: .1em;
+    }
+
 .halselected{
    background-color: #CFD8DC !important;
       color: black;
