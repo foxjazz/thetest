@@ -11,9 +11,10 @@ import {ItemTypes, ItemType} from './ItemTypes';
 export class ItemComponent implements OnInit{
     public allItemTypes: Array<ItemType>;
     public selItemTypes: Array<ItemType>;
-    constructor(private eveTypeService: ItemTypesService) { }
+    constructor(private eveTypeService: ItemTypesService) { this.selItemTypes = new Array<ItemType>();}
     private getTypes = function () {
         this.allItemTypes = this.eveTypeService.getItemTypes();
+        
     }
     public onRemoveItem = function( item: ItemType){
         this.tempItem = this.selItemTypes;
@@ -23,11 +24,18 @@ export class ItemComponent implements OnInit{
           if (item === this.tempItem[i]) {
             continue;
           }
-          this.selItemTypes.items.push(this.tempItem.items[i]);
+          this.selItemTypes.push(this.tempItem[i]);
         }
     }
-    public onSelectItem = function(item: ItemType){
-        this.selItemTypes.items.push(item);
+    public onSelectItem = function (it: ItemType) {
+        
+        let i = 0;
+        for (i = 0; i < this.selItemTypes.length; i++) {
+            if (it === this.selItemTypes[i]) {
+                return;
+            }
+        }
+        this.selItemTypes.push(it);
         
     }
     ngOnInit() {
