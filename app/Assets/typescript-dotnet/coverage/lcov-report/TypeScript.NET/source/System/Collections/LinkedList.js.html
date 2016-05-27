@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for TypeScript.NET\source\System\Collections\LinkedList.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">TypeScript.NET/source/System/Collections/</a> LinkedList.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">67.63% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>117/173</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.88% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>25/66</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.1% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>27/49</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68.48% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>113/165</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">62×</span>
+<span class="cline-any cline-yes">62×</span>
+<span class="cline-any cline-yes">62×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">174×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">104×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*!
+ * @author electricessence / https://github.com/electricessence/
+ * Based Upon: http://msdn.microsoft.com/en-us/library/he2s3bh7%28v=vs.110%29.aspx
+ * Licensing: MIT https://github.com/electricessence/TypeScript.NET/blob/master/LICENSE.md
+ */
+var __extends = (this &amp;&amp; this.__extends) || function (d, b) {
+    for (var p in b) <span class="cstat-no" title="statement not covered" >if (b.hasOwnProperty(p)) <span class="cstat-no" title="statement not covered" >d[p] = b[p];</span></span>
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? <span class="branch-0 cbranch-no" title="branch not covered" >Object.create(b) </span>: (__.prototype = b.prototype, new __());
+};
+(function (factory) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof module === 'object' &amp;&amp; typeof module.exports === 'object') {
+        var v = factory(require, exports); <span class="missing-if-branch" title="if path not taken" >I</span>if (v !== undefined) <span class="cstat-no" title="statement not covered" >module.exports = v;</span>
+    }
+    else <span class="cstat-no" title="statement not covered" >if (typeof define === 'function' &amp;&amp; define.amd) {</span>
+<span class="cstat-no" title="statement not covered" >        define(["require", "exports", "../Compare", "./LinkedNodeList", "../Exceptions/InvalidOperationException", "../Exceptions/ArgumentNullException", "./CollectionBase"], factory);</span>
+    }
+})(function (require, exports) {
+    "use strict";
+    var Compare_1 = require("../Compare");
+    var LinkedNodeList_1 = require("./LinkedNodeList");
+    var InvalidOperationException_1 = require("../Exceptions/InvalidOperationException");
+    var ArgumentNullException_1 = require("../Exceptions/ArgumentNullException");
+    var CollectionBase_1 = require("./CollectionBase");
+    var InternalNode = (function () {
+        function InternalNode(value, previous, next) {
+            this.value = value;
+            this.previous = previous;
+            this.next = next;
+        }
+        InternalNode.prototype.assertDetached = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >            if (this.next || this.previous)</span>
+<span class="cstat-no" title="statement not covered" >                throw new InvalidOperationException_1.InvalidOperationException("Adding a node that is already placed.");</span>
+        };
+        return InternalNode;
+    }());
+    function ensureExternal(node, list) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!node)
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!list)
+<span class="cstat-no" title="statement not covered" >            throw new ArgumentNullException_1.ArgumentNullException("list");</span>
+        var external = node.external;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!external)
+            node.external = external = new LinkedListNode(list, node);
+        return external;
+    }
+    function getInternal(node, list) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!node)
+<span class="cstat-no" title="statement not covered" >            throw new ArgumentNullException_1.ArgumentNullException("node");</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!list)
+<span class="cstat-no" title="statement not covered" >            throw new ArgumentNullException_1.ArgumentNullException("list");</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (node.list != list)
+<span class="cstat-no" title="statement not covered" >            throw new InvalidOperationException_1.InvalidOperationException("Provided node does not belong to this list.");</span>
+        var n = node._nodeInternal;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!n)
+<span class="cstat-no" title="statement not covered" >            throw new InvalidOperationException_1.InvalidOperationException("Provided node is not valid.");</span>
+        return n;
+    }
+    var LinkedList = (function (_super) {
+        __extends(LinkedList, _super);
+        function LinkedList(source, equalityComparer) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (equalityComparer === void 0) { equalityComparer = Compare_1.areEqual; }
+            _super.call(this, null, equalityComparer);
+            var _ = this;
+            _._listInternal = new LinkedNodeList_1.LinkedNodeList();
+            _._importEntries(source);
+        }
+        LinkedList.prototype.getCount = function () {
+            return this._listInternal.unsafeCount;
+        };
+        LinkedList.prototype._addInternal = function (entry) {
+            this._listInternal.addNode(new InternalNode(entry));
+            return true;
+        };
+        LinkedList.prototype._removeInternal = function (entry, max) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (max === void 0) { <span class="cstat-no" title="statement not covered" >max = Infinity; </span>}
+            var _ = this, equals = _._equalityComparer, list = _._listInternal, removedCount = 0;
+            list.forEach(function (node) {
+                if (equals(entry, node.value) &amp;&amp; list.removeNode(node))
+                    removedCount++;
+                return removedCount &lt; max;
+            });
+            return removedCount;
+        };
+        LinkedList.prototype._clearInternal = function () {
+            return this._listInternal.clear();
+        };
+        LinkedList.prototype.forEach = function (action, useCopy) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (useCopy === void 0) { useCopy = false; }
+            return useCopy
+                ? <span class="branch-0 cbranch-no" title="branch not covered" >_super.prototype.forEach.call(this, action, useCopy)</span>
+                : this._listInternal.forEach(function (node, i) { return action(node.value, i); });
+        };
+        LinkedList.prototype.getEnumerator = function () {
+            return LinkedNodeList_1.LinkedNodeList.valueEnumeratorFrom(this._listInternal);
+        };
+        LinkedList.prototype._findFirst = function (entry) {
+            var _ = this, equals = _._equalityComparer, next = _._listInternal.first;
+            while (next) {
+                if (equals(entry, next.value))
+                    return next;
+                next = next.next;
+            }
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        };
+        LinkedList.prototype._findLast = <span class="fstat-no" title="function not covered" >function (entry) {</span>
+<span class="cstat-no" title="statement not covered" >            var _ = this, equals = _._equalityComparer, prev = _._listInternal.last;</span>
+<span class="cstat-no" title="statement not covered" >            while (prev) {</span>
+<span class="cstat-no" title="statement not covered" >                if (equals(entry, prev.value))</span>
+<span class="cstat-no" title="statement not covered" >                    return prev;</span>
+<span class="cstat-no" title="statement not covered" >                prev = prev.previous;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        };
+        LinkedList.prototype.removeOnce = <span class="fstat-no" title="function not covered" >function (entry) {</span>
+<span class="cstat-no" title="statement not covered" >            return this.remove(entry, 1) !== 0;</span>
+        };
+        Object.defineProperty(LinkedList.prototype, "first", {
+            get: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                return ensureExternal(this._listInternal.first, this);</span>
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(LinkedList.prototype, "last", {
+            get: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                return ensureExternal(this._listInternal.last, this);</span>
+            },
+            enumerable: true,
+            configurable: true
+        });
+        LinkedList.prototype.getValueAt = <span class="fstat-no" title="function not covered" >function (index) {</span>
+<span class="cstat-no" title="statement not covered" >            var node = this._listInternal.getNodeAt(index);</span>
+<span class="cstat-no" title="statement not covered" >            if (!node)</span>
+<span class="cstat-no" title="statement not covered" >                return node &amp;&amp; node.value || void (0);</span>
+        };
+        LinkedList.prototype.getNodeAt = <span class="fstat-no" title="function not covered" >function (index) {</span>
+<span class="cstat-no" title="statement not covered" >            return ensureExternal(this._listInternal.getNodeAt(index), this);</span>
+        };
+        LinkedList.prototype.find = function (entry) {
+            return ensureExternal(this._findFirst(entry), this);
+        };
+        LinkedList.prototype.findLast = <span class="fstat-no" title="function not covered" >function (entry) {</span>
+<span class="cstat-no" title="statement not covered" >            return ensureExternal(this._findLast(entry), this);</span>
+        };
+        LinkedList.prototype.addFirst = <span class="fstat-no" title="function not covered" >function (entry) {</span>
+<span class="cstat-no" title="statement not covered" >            this._listInternal.addNodeBefore(new InternalNode(entry));</span>
+<span class="cstat-no" title="statement not covered" >            this._signalModification(true);</span>
+        };
+        LinkedList.prototype.addLast = <span class="fstat-no" title="function not covered" >function (entry) {</span>
+<span class="cstat-no" title="statement not covered" >            this.add(entry);</span>
+        };
+        LinkedList.prototype.removeFirst = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >            var _ = this, first = _._listInternal.first;</span>
+<span class="cstat-no" title="statement not covered" >            if (first &amp;&amp; _._listInternal.removeNode(first))</span>
+<span class="cstat-no" title="statement not covered" >                _._signalModification(true);</span>
+        };
+        LinkedList.prototype.removeLast = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >            var _ = this, last = _._listInternal.last;</span>
+<span class="cstat-no" title="statement not covered" >            if (last &amp;&amp; _._listInternal.removeNode(last))</span>
+<span class="cstat-no" title="statement not covered" >                _._signalModification(true);</span>
+        };
+        LinkedList.prototype.removeNode = <span class="fstat-no" title="function not covered" >function (node) {</span>
+<span class="cstat-no" title="statement not covered" >            var _ = this;</span>
+<span class="cstat-no" title="statement not covered" >            if (_._listInternal.removeNode(getInternal(node, _))) {</span>
+<span class="cstat-no" title="statement not covered" >                _._signalModification(true);</span>
+<span class="cstat-no" title="statement not covered" >                return true;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+        };
+        LinkedList.prototype.addBefore = function (before, entry) {
+            var _ = this;
+            _._listInternal.addNodeBefore(new InternalNode(entry), getInternal(before, _));
+            _._signalModification(true);
+        };
+        LinkedList.prototype.addAfter = function (after, entry) {
+            var _ = this;
+            _._listInternal.addNodeAfter(new InternalNode(entry), getInternal(after, _));
+            _._signalModification(true);
+        };
+        LinkedList.prototype.addNodeBefore = <span class="fstat-no" title="function not covered" >function (node, before) {</span>
+<span class="cstat-no" title="statement not covered" >            var _ = this;</span>
+<span class="cstat-no" title="statement not covered" >            _._listInternal.addNodeBefore(getInternal(before, _), getInternal(node, _));</span>
+<span class="cstat-no" title="statement not covered" >            _._signalModification(true);</span>
+        };
+        LinkedList.prototype.addNodeAfter = <span class="fstat-no" title="function not covered" >function (node, after) {</span>
+<span class="cstat-no" title="statement not covered" >            var _ = this;</span>
+<span class="cstat-no" title="statement not covered" >            this._listInternal.addNodeAfter(getInternal(after, _), getInternal(node, _));</span>
+<span class="cstat-no" title="statement not covered" >            _._signalModification(true);</span>
+        };
+        return LinkedList;
+    }(CollectionBase_1.CollectionBase));
+    exports.LinkedList = LinkedList;
+    var LinkedListNode = (function () {
+        function LinkedListNode(_list, _nodeInternal) {
+            this._list = _list;
+            this._nodeInternal = _nodeInternal;
+        }
+        Object.defineProperty(LinkedListNode.prototype, "list", {
+            get: function () {
+                return this._list;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(LinkedListNode.prototype, "previous", {
+            get: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                return ensureExternal(this._nodeInternal.previous, this._list);</span>
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(LinkedListNode.prototype, "next", {
+            get: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                return ensureExternal(this._nodeInternal.next, this._list);</span>
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(LinkedListNode.prototype, "value", {
+            get: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                return this._nodeInternal.value;</span>
+            },
+            set: <span class="fstat-no" title="function not covered" >function (v) {</span>
+<span class="cstat-no" title="statement not covered" >                this._nodeInternal.value = v;</span>
+            },
+            enumerable: true,
+            configurable: true
+        });
+        LinkedListNode.prototype.addBefore = function (entry) {
+            this._list.addBefore(this, entry);
+        };
+        LinkedListNode.prototype.addAfter = function (entry) {
+            this._list.addAfter(this, entry);
+        };
+        LinkedListNode.prototype.addNodeBefore = <span class="fstat-no" title="function not covered" >function (before) {</span>
+<span class="cstat-no" title="statement not covered" >            this._list.addNodeBefore(this, before);</span>
+        };
+        LinkedListNode.prototype.addNodeAfter = <span class="fstat-no" title="function not covered" >function (after) {</span>
+<span class="cstat-no" title="statement not covered" >            this._list.addNodeAfter(this, after);</span>
+        };
+        LinkedListNode.prototype.remove = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >            this._list.removeNode(this);</span>
+        };
+        return LinkedListNode;
+    }());
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.default = LinkedList;
+});
+//# sourceMappingURL=LinkedList.js.map</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue May 24 2016 02:55:51 GMT-0700 (Pacific Daylight Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

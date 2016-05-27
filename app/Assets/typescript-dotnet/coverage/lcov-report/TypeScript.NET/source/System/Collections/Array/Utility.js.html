@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for TypeScript.NET\source\System\Collections\Array\Utility.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">all files</a> / <a href="index.html">TypeScript.NET/source/System/Collections/Array/</a> Utility.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.47% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>231/237</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.06% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>154/162</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.91% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>20/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.18% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>216/220</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">96×</span>
+<span class="cline-any cline-yes">96×</span>
+<span class="cline-any cline-yes">96×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">95×</span>
+<span class="cline-any cline-yes">95×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">96×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">47×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">43×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">150×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-yes">75×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">43×</span>
+<span class="cline-any cline-yes">43×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">161×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1003×</span>
+<span class="cline-any cline-yes">1003×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*!
+ * @author electricessence / https://github.com/electricessence/
+ * Licensing: MIT https://github.com/electricessence/TypeScript.NET/blob/master/LICENSE.md
+ */
+(function (factory) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof module === 'object' &amp;&amp; typeof module.exports === 'object') {
+        var v = factory(require, exports); <span class="missing-if-branch" title="if path not taken" >I</span>if (v !== undefined) <span class="cstat-no" title="statement not covered" >module.exports = v;</span>
+    }
+    else <span class="cstat-no" title="statement not covered" >if (typeof define === 'function' &amp;&amp; define.amd) {</span>
+<span class="cstat-no" title="statement not covered" >        define(["require", "exports", "../../Types", "../../Integer", "../../Compare", "../../Exceptions/ArgumentException", "../../Exceptions/ArgumentNullException", "../../Exceptions/ArgumentOutOfRangeException"], factory);</span>
+    }
+})(function (require, exports) {
+    "use strict";
+    var Types_1 = require("../../Types");
+    var Integer_1 = require("../../Integer");
+    var Compare_1 = require("../../Compare");
+    var ArgumentException_1 = require("../../Exceptions/ArgumentException");
+    var ArgumentNullException_1 = require("../../Exceptions/ArgumentNullException");
+    var ArgumentOutOfRangeException_1 = require("../../Exceptions/ArgumentOutOfRangeException");
+    function initialize(length) {
+        Integer_1.Integer.assert(length, 'length');
+        var array;
+        if (length &gt; 65536)
+            array = new Array(length);
+        else {
+            array = [];
+            array.length = length;
+        }
+        return array;
+    }
+    exports.initialize = initialize;
+    function copy(source, sourceIndex, length) {
+        if (sourceIndex === void 0) { sourceIndex = 0; }
+        if (length === void 0) { length = Infinity; }
+        if (!source)
+            return source;
+        return copyTo(source, initialize(Math.min(length, Math.max(source.length - sourceIndex, 0))), sourceIndex, 0, length);
+    }
+    exports.copy = copy;
+    var CBN = 'Cannot be null.', CB0 = 'Cannot be zero.', CBL0 = 'Cannot be less than zero.', VFN = 'Must be a valid finite number';
+    function copyTo(source, destination, sourceIndex, destinationIndex, length) {
+        if (sourceIndex === void 0) { sourceIndex = 0; }
+        if (destinationIndex === void 0) { destinationIndex = 0; }
+        if (length === void 0) { length = Infinity; }
+        if (!source)
+            throw new ArgumentNullException_1.ArgumentNullException('source', CBN);
+        if (!destination)
+            throw new ArgumentNullException_1.ArgumentNullException('destination', CBN);
+        if (sourceIndex &lt; 0)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('sourceIndex', sourceIndex, CBL0);
+        var sourceLength = source.length;
+        if (!sourceLength)
+            return destination;
+        if (sourceIndex &gt;= sourceLength)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('sourceIndex', sourceIndex, 'Must be less than the length of the source array.');
+        if (destination.length &lt; 0)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('destinationIndex', destinationIndex, CBL0);
+        var maxLength = source.length - sourceIndex;
+        if (isFinite(length) &amp;&amp; length &gt; maxLength)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('sourceIndex', sourceIndex, 'Source index + length cannot exceed the length of the source array.');
+        length = Math.min(length, maxLength);
+        var newLength = destinationIndex + length;
+        if (newLength &gt; destination.length)
+            destination.length = newLength;
+        for (var i = 0; i &lt; length; i++) {
+            destination[destinationIndex + i] = source[sourceIndex + i];
+        }
+        return destination;
+    }
+    exports.copyTo = copyTo;
+    function indexOf(array, item, equalityComparer) {
+        if (equalityComparer === void 0) { equalityComparer = Compare_1.areEqual; }
+        var len = array &amp;&amp; array.length;
+        if (len) {
+            if (Array.isArray(array) &amp;&amp; !Types_1.Type.isTrueNaN(item))
+                return array.indexOf(item);
+            for (var i = 0; i &lt; len; i++) {
+                if (equalityComparer(array[i], item))
+                    return i;
+            }
+        }
+        return -1;
+    }
+    exports.indexOf = indexOf;
+    function contains(array, item, equalityComparer) {
+        if (equalityComparer === void 0) { equalityComparer = Compare_1.areEqual; }
+        return indexOf(array, item, equalityComparer) != -1;
+    }
+    exports.contains = contains;
+    function replace(array, old, newValue, max) {
+        if (!array || !array.length || max === 0)
+            return 0;
+        if (max &lt; 0)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('max', max, CBL0);
+        if (!max)
+            max = Infinity;
+        var count = 0;
+        for (var i = 0, len = array.length; i &lt; len; i++) {
+            if (array[i] === old) {
+                array[i] = newValue;
+                ++count;
+                if (count == max)
+                    break;
+            }
+        }
+        return count;
+    }
+    exports.replace = replace;
+    function updateRange(array, value, start, stop) {
+        if (start === void 0) { start = 0; }
+        if (!array)
+            return;
+        Integer_1.Integer.assertZeroOrGreater(start, 'start');
+        if (!stop &amp;&amp; stop !== 0)
+            stop = array.length;
+        Integer_1.Integer.assert(stop, 'stop');
+        if (stop &lt; start)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException("stop", stop, "is less than start");
+        for (var i = start; i &lt; stop; i++) {
+            array[i] = value;
+        }
+    }
+    exports.updateRange = updateRange;
+    function clear(array, start, stop) {
+        if (start === void 0) { start = 0; }
+        updateRange(array, null, start, stop);
+    }
+    exports.clear = clear;
+    function register(array, item, equalityComparer) {
+        if (equalityComparer === void 0) { equalityComparer = Compare_1.areEqual; }
+        if (!array)
+            throw new ArgumentNullException_1.ArgumentNullException('array', CBN);
+        var len = array.length;
+        var ok = !len || !contains(array, item, equalityComparer);
+        if (ok)
+            array[len] = item;
+        return ok;
+    }
+    exports.register = register;
+    function findIndex(array, predicate) {
+        if (!array)
+            throw new ArgumentNullException_1.ArgumentNullException('array', CBN);
+        if (!Types_1.Type.isFunction(predicate))
+            throw new ArgumentException_1.ArgumentException('predicate', 'Must be a function.');
+        var len = array.length;
+        if (Array.isArray(array)) {
+            for (var i = 0; i &lt; len; i++) {
+                if (predicate(array[i]))
+                    return i;
+            }
+        }
+        else {
+            for (var i = 0; i &lt; len; i++) {
+                if ((i) in (array) &amp;&amp; predicate(array[i]))
+                    return i;
+            }
+        }
+        return -1;
+    }
+    exports.findIndex = findIndex;
+    function forEach(source, action) {
+        if (source &amp;&amp; action) {
+            for (var i = 0; i &lt; source.length; i++) {
+                if (action(source[i], i) === false)
+                    break;
+            }
+        }
+    }
+    exports.forEach = forEach;
+    function applyTo(target, fn) {
+        if (target &amp;&amp; fn) {
+            for (var i = 0; i &lt; target.length; i++) {
+                target[i] = fn(target[i]);
+            }
+        }
+    }
+    exports.applyTo = applyTo;
+    function removeIndex(array, index) {
+        if (!array)
+            throw new ArgumentNullException_1.ArgumentNullException('array', CBN);
+        Integer_1.Integer.assert(index, 'index');
+        if (index &lt; 0)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('index', index, CBL0);
+        var exists = index &lt; array.length;
+        if (exists)
+            array.splice(index, 1);
+        return exists;
+    }
+    exports.removeIndex = removeIndex;
+    function remove(array, value, max, equalityComparer) {
+        if (equalityComparer === void 0) { equalityComparer = Compare_1.areEqual; }
+        if (!array || !array.length || max === 0)
+            return 0;
+        if (max &lt; 0)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('max', max, CBL0);
+        var count = 0;
+        if (!max || !isFinite(max)) {
+            for (var i = (array.length - 1); i &gt;= 0; i--) {
+                if (equalityComparer(array[i], value)) {
+                    array.splice(i, 1);
+                    ++count;
+                }
+            }
+        }
+        else {
+            var found = [];
+            for (var i = 0, len = array.length; i &lt; len; i++) {
+                if (equalityComparer(array[i], value)) {
+                    found.push(i);
+                    ++count;
+                    if (count == max)
+                        break;
+                }
+            }
+            for (var i = found.length - 1; i &gt;= 0; i--) {
+                array.splice(found[i], 1);
+            }
+        }
+        return count;
+    }
+    exports.remove = remove;
+    function repeat(element, count) {
+        Integer_1.Integer.assert(count, 'count');
+        if (count &lt; 0)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('count', count, CBL0);
+        var result = initialize(count);
+        for (var i = 0; i &lt; count; i++) {
+            result[i] = element;
+        }
+        return result;
+    }
+    exports.repeat = repeat;
+    function range(first, count, step) {
+        if (step === void 0) { step = 1; }
+        if (isNaN(first) || !isFinite(first))
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('first', first, VFN);
+        if (isNaN(count) || !isFinite(count))
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('count', count, VFN);
+        if (count &lt; 0)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('count', count, CBL0);
+        var result = initialize(count);
+        for (var i = 0; i &lt; count; i++) {
+            result[i] = first;
+            first += step;
+        }
+        return result;
+    }
+    exports.range = range;
+    function rangeUntil(first, until, step) {
+        if (step === void 0) { step = 1; }
+        if (step == 0)
+            throw new ArgumentOutOfRangeException_1.ArgumentOutOfRangeException('step', step, CB0);
+        return range(first, (until - first) / step, step);
+    }
+    exports.rangeUntil = rangeUntil;
+<span class="fstat-no" title="function not covered" >    function distinct(source) {</span>
+<span class="cstat-no" title="statement not covered" >        var seen = {};</span>
+<span class="cstat-no" title="statement not covered" >        return source.filter(<span class="fstat-no" title="function not covered" >function (e) {</span> <span class="cstat-no" title="statement not covered" >return !(e in seen) &amp;&amp; (seen[e] = true); </span>});</span>
+    }
+    exports.distinct = distinct;
+    function flatten(a, recurseDepth) {
+        if (recurseDepth === void 0) { recurseDepth = 0; }
+        var result = [];
+        for (var i = 0; i &lt; a.length; i++) {
+            var x = a[i];
+            if (Array.isArray(x)) {
+                if (recurseDepth &gt; 0)
+                    x = flatten(x, recurseDepth - 1);
+                for (var n = 0; n &lt; x.length; n++)
+                    result.push(x[n]);
+            }
+            else
+                result.push(x);
+        }
+        return result;
+    }
+    exports.flatten = flatten;
+});
+//# sourceMappingURL=Utility.js.map</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue May 24 2016 02:55:51 GMT-0700 (Pacific Daylight Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

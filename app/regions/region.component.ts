@@ -1,7 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import {Region, ISystem} from './IRegions';
+import {Region, ISystem, ISystemDescriptor} from './IRegions';
 import { HTTPEveService } from './http-eve.service';
 import {HTTP_PROVIDERS} from '@angular/http';
+import {TypeValidator} from '../Assets/typescript-dotnet/source/System/TypeValidator';
 //import {localStorage} from '../Utilities/localStorageModule';
 import 'rxjs/Rx';
 
@@ -23,6 +24,7 @@ export class RegionComponent implements OnInit {
     public title: string = 'Regions List';
     private errorMessage: string = '';
     public Regs: Array<Region>;
+    
     private loaded = false;
     public avSystems: Array<ISystem>;
     private selRegion: Region;
@@ -78,6 +80,14 @@ export class RegionComponent implements OnInit {
        /* let data: Array<ISystem>;
         data = JSON.parse(JSON.stringify(this.selSystems));*/
         localStorage.setItem('Systems', JSON.stringify(this.selSystems));
+          let res: string;
+         res = localStorage.getItem('Systems');
+         var restry = JSON.parse(res);
+         console.log('res string from localstorage');
+         console.log(res);
+         console.log('object restry from localstorage');
+         console.log (restry);
+         this.selSystems = restry;
     }
     
       public onSelectRegion(region: Region) {
@@ -89,8 +99,25 @@ export class RegionComponent implements OnInit {
 
      getRegions(){
         let res: string;
-         let data: Array<ISystem>;
+         let data: Array<ISystem> = new Array<ISystem>();
          res = localStorage.getItem('Systems');
+         
+         var restry = JSON.parse(res);
+         console.log('res string from localstorage');
+         console.log(res);
+         console.log('object restry from localstorage');
+         console.log (restry);
+         var first = data.length && data[0];
+         const isd = new TypeValidator<ISystem[]>([ISystemDescriptor]);
+        if(first) {
+            if(isd.isSubsetOf(restry)) {
+              //data = restry;
+              this.selSystems = restry;
+            };
+              
+            
+        }
+         
          // first I  need to know if data is compantible with res
         // data = JSON.parse(res);
          

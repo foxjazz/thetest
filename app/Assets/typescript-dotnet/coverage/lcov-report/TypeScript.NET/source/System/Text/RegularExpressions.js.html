@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for TypeScript.NET\source\System\Text\RegularExpressions.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">TypeScript.NET/source/System/Text/</a> RegularExpressions.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.07% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>171/178</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.18% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>89/107</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>25/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.55% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>159/163</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*!
+ * @author electricessence / https://github.com/electricessence/
+ * Named groups based on: http://trentrichardson.com/2011/08/02/javascript-regexp-match-named-captures/
+ * Licensing: MIT https://github.com/electricessence/TypeScript.NET/blob/master/LICENSE.md
+ */
+var __extends = (this &amp;&amp; this.__extends) || function (d, b) {
+    for (var p in b) <span class="missing-if-branch" title="else path not taken" >E</span>if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? <span class="branch-0 cbranch-no" title="branch not covered" >Object.create(b) </span>: (__.prototype = b.prototype, new __());
+};
+(function (factory) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof module === 'object' &amp;&amp; typeof module.exports === 'object') {
+        var v = factory(require, exports); <span class="missing-if-branch" title="if path not taken" >I</span>if (v !== undefined) <span class="cstat-no" title="statement not covered" >module.exports = v;</span>
+    }
+    else <span class="cstat-no" title="statement not covered" >if (typeof define === 'function' &amp;&amp; define.amd) {</span>
+<span class="cstat-no" title="statement not covered" >        define(["require", "exports"], factory);</span>
+    }
+})(function (require, exports) {
+    "use strict";
+    var EMPTY = "";
+    var UNDEFINED = "undefined";
+    var _I = 'i', _G = 'g', _M = 'm', _U = 'u', _W = 'w', _Y = 'y';
+    var RegexOptions;
+    (function (RegexOptions) {
+        RegexOptions.IGNORE_CASE = _I;
+        RegexOptions.I = _I;
+        RegexOptions.GLOBAL = _G;
+        RegexOptions.G = _G;
+        RegexOptions.MULTI_LINE = _M;
+        RegexOptions.M = _M;
+        RegexOptions.UNICODE = _U;
+        RegexOptions.U = _U;
+        RegexOptions.STICKY = _Y;
+        RegexOptions.Y = _Y;
+        RegexOptions.IGNORE_PATTERN_WHITESPACE = _W;
+        RegexOptions.W = _W;
+    })(RegexOptions = exports.RegexOptions || (exports.RegexOptions = {}));
+    var Regex = (function () {
+        function Regex(pattern, options) {
+            var extra = [];
+            for (var _i = 2; _i &lt; arguments.length; _i++) {
+                extra[_i - 2] = arguments[_i];
+            }
+            if (!pattern)
+                throw new Error("'pattern' cannot be null or empty.");
+            var patternString, flags = (options &amp;&amp; (Array.isArray(options) ? options : [options]).concat(extra) || extra)
+                .join(EMPTY).toLowerCase();
+            if (pattern instanceof RegExp) {
+                var p = pattern;
+                if (p.ignoreCase &amp;&amp; flags.indexOf(_I) === -1)
+                    flags += _I;
+                if (p.multiline &amp;&amp; flags.indexOf(_M) === -1)
+                    flags += _M;
+                patternString = p.source;
+            }
+            else {
+                patternString = pattern;
+            }
+            var ignoreWhiteSpace = flags.indexOf(_W) != -1;
+            flags = flags.replace(/[gw]/g, EMPTY);
+            var keys = [];
+            {
+                var k = patternString.match(/(?!\(\?&lt;)(\w+)(?=&gt;)/g);
+                if (k) {
+                    for (var i = 0, len = k.length; i &lt; len; i++) {
+                        keys[i + 1] = k[i];
+                    }
+                    patternString = patternString.replace(/\?&lt;\w+&gt;/g, EMPTY);
+                    this._keys = keys;
+                }
+                if (ignoreWhiteSpace)
+                    patternString = patternString.replace(/\s+/g, "\\s*");
+                this._re = new RegExp(patternString, flags);
+            }
+            Object.freeze(this);
+        }
+        Regex.prototype.match = function (input, startIndex) {
+            if (startIndex === void 0) { startIndex = 0; }
+            var _ = this;
+            var r;
+            if (!input
+                || startIndex &gt;= input.length
+                || !(r = this._re.exec(input.substring(startIndex))))
+                return Match.Empty;
+            if (!(startIndex &gt; 0))
+                startIndex = 0;
+            var first = startIndex + r.index, loc = first, groups = [], groupMap = {};
+            for (var i = 0, len = r.length; i &lt; len; ++i) {
+                var text = r[i];
+                var g = EmptyGroup;
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (text !== null || <span class="branch-1 cbranch-no" title="branch not covered" >text !== void 0)</span> {
+                    g = new Group(text, loc);
+                    g.freeze();
+                }
+                if (i &amp;&amp; _._keys &amp;&amp; i &lt; _._keys.length)
+                    groupMap[_._keys[i]] = g;
+                groups.push(g);
+                if (i !== 0)
+                    loc += text.length;
+            }
+            var m = new Match(r[0], first, groups, groupMap);
+            m.freeze();
+            return m;
+        };
+        Regex.prototype.matches = function (input) {
+            var matches = [], m, p = 0, end = input &amp;&amp; input.length || <span class="branch-2 cbranch-no" title="branch not covered" >0;</span>
+            while (p &lt; end &amp;&amp; (m = this.match(input, p)) &amp;&amp; m.success) {
+                matches.push(m);
+                p = m.index + m.length;
+            }
+            return Object.freeze(matches);
+        };
+        Regex.prototype.replace = function (input, r, count) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (count === void 0) { count = Infinity; }
+            if (!input || r === null || r === void 0 || !(count &gt; 0))
+                return input;
+            var result = [];
+            var p = 0, end = input.length, isEvaluator = typeof r == "function";
+            var m, i = 0;
+            while (i &lt; count &amp;&amp; p &lt; end &amp;&amp; (m = this.match(input, p)) &amp;&amp; m.success) {
+                var index = m.index, length_1 = m.length;
+                if (p !== index)
+                    result.push(input.substring(p, index));
+                result.push(isEvaluator ? r(m, i++) : r);
+                p = index + length_1;
+            }
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (p &lt; end)
+                result.push(input.substring(p));
+            return result.join(EMPTY);
+        };
+        Regex.prototype.isMatch = function (input) {
+            return this._re.test(input);
+        };
+        Regex.isMatch = function (input, pattern, options) {
+            var r = new Regex(pattern, options);
+            return r.isMatch(input);
+        };
+        Regex.replace = function (input, pattern, e, options) {
+            var r = new Regex(pattern, options);
+            return r.replace(input, e);
+        };
+        return Regex;
+    }());
+    exports.Regex = Regex;
+    var Capture = (function () {
+        function Capture(value, index) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (value === void 0) { <span class="cstat-no" title="statement not covered" >value = EMPTY; </span>}
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (index === void 0) { <span class="cstat-no" title="statement not covered" >index = -1; </span>}
+            this.value = value;
+            this.index = index;
+        }
+        Object.defineProperty(Capture.prototype, "length", {
+            get: function () {
+                var v = this.value;
+                return v &amp;&amp; v.length || <span class="branch-2 cbranch-no" title="branch not covered" >0;</span>
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Capture.prototype.freeze = function () {
+            Object.freeze(this);
+        };
+        return Capture;
+    }());
+    exports.Capture = Capture;
+    var Group = (function (_super) {
+        __extends(Group, _super);
+        function Group(value, index) {
+            if (value === void 0) { value = EMPTY; }
+            if (index === void 0) { index = -1; }
+            _super.call(this, value, index);
+        }
+        Object.defineProperty(Group.prototype, "success", {
+            get: function () {
+                return this.index != -1;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Group, "Empty", {
+            get: function () {
+                return EmptyGroup;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return Group;
+    }(Capture));
+    exports.Group = Group;
+    var EmptyGroup = new Group();
+    EmptyGroup.freeze();
+    var Match = (function (_super) {
+        __extends(Match, _super);
+        function Match(value, index, groups, namedGroups) {
+            if (value === void 0) { value = EMPTY; }
+            if (index === void 0) { index = -1; }
+            if (groups === void 0) { groups = []; }
+            if (namedGroups === void 0) { namedGroups = {}; }
+            _super.call(this, value, index);
+            this.groups = groups;
+            this.namedGroups = namedGroups;
+        }
+        Match.prototype.freeze = function () {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.groups)
+<span class="cstat-no" title="statement not covered" >                throw new Error("'groups' cannot be null.");</span>
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.namedGroups)
+<span class="cstat-no" title="statement not covered" >                throw new Error("'groupMap' cannot be null.");</span>
+            Object.freeze(this.groups.slice());
+            Object.freeze(this.namedGroups);
+            _super.prototype.freeze.call(this);
+        };
+        Object.defineProperty(Match, "Empty", {
+            get: function () {
+                return EmptyMatch;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return Match;
+    }(Group));
+    exports.Match = Match;
+    var EmptyMatch = new Match();
+    EmptyMatch.freeze();
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.default = Regex;
+});
+//# sourceMappingURL=RegularExpressions.js.map</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue May 24 2016 02:55:51 GMT-0700 (Pacific Daylight Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
