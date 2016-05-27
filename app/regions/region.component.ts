@@ -80,14 +80,14 @@ export class RegionComponent implements OnInit {
        /* let data: Array<ISystem>;
         data = JSON.parse(JSON.stringify(this.selSystems));*/
         localStorage.setItem('Systems', JSON.stringify(this.selSystems));
-          let res: string;
+          /*let res: string;
          res = localStorage.getItem('Systems');
          var restry = JSON.parse(res);
          console.log('res string from localstorage');
          console.log(res);
          console.log('object restry from localstorage');
          console.log (restry);
-         this.selSystems = restry;
+         this.selSystems = restry;*/
     }
     
       public onSelectRegion(region: Region) {
@@ -107,7 +107,7 @@ export class RegionComponent implements OnInit {
          console.log(res);
          console.log('object restry from localstorage');
          console.log (restry);
-         var first = data.length && data[0];
+         var first = restry.length && restry[0];
          const isd = new TypeValidator<ISystem[]>([ISystemDescriptor]);
         if(first) {
             if(isd.isSubsetOf(restry)) {

@@ -14,7 +14,7 @@ export interface Region {
 export interface ISystem {
   volume_str: string;
     buy: boolean;
-    issued: Date;
+    issued: string;
     price: number;
     volumeEntered: number;
     minVolume: number;
@@ -44,7 +44,7 @@ type: {
 export const ISystemDescriptor = {
     volume_str: String,
     buy: Boolean,
-    issued: Date,
+    issued: String,
     price: Number,
     volumeEntered: Number,
     minVolume: Number,
