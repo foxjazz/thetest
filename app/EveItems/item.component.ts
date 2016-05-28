@@ -13,11 +13,17 @@ export class ItemComponent implements OnInit{
     public allItemTypes: Array<ItemType>;
     public selItemTypes: Array<ItemType>;
     constructor(private eveTypeService: ItemTypesService) { this.selItemTypes = new Array<ItemType>();}
+    
+    public onClearItems(){
+        this.selItemTypes = new Array<ItemType>();
+    }
+    
     private getTypes = function () {
         let res: string;
+        this.allItemTypes = this.eveTypeService.getItemTypes();
          res = localStorage.getItem('SelEveItems');
-         var restry = JSON.parse(res);
-         var first = false;
+         let restry = JSON.parse(res);
+         let first = false;
          if(restry != null)
             first = restry.length && restry[0];
          const isd = new TypeValidator<ItemType[]>([ItemTypeDescriptor]);
@@ -26,11 +32,11 @@ export class ItemComponent implements OnInit{
               this.selItemTypes = restry;
             }
             else {
-                this.selItemTypes = this.eveTypeService.getItemTypes();
+                this.selItemTypes = new Array<ItemType>();    
             }
         }
         else {  
-            this.selItemTypes = this.eveTypeService.getItemTypes(); 
+            this.selItemTypes = new Array<ItemType>(); 
             } 
     }
     

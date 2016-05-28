@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {RegionComponent} from './regions/region.component';
 import {ItemComponent} from './EveItems/item.component';
-import {PriceBoardComponent} from './PriceBoard/priceboard.componet'
+import {PriceBoardComponent} from './PriceBoard/priceboard.component'
 //import {HTTP_PROVIDERS} from '@angular/http';
 //import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
@@ -21,9 +21,10 @@ import 'rxjs/Rx';
         <sel-items> loading items </sel-items>
     </div>
     <div id="pb">
-        <price-board> loading items </price-board>
+        <sel-board> loading canvas </sel-board>
     </div>
     `,
+    styleUrls: ['app/app.css', 'app/assets/bootstrap/dist/css/bootstrap.min.css'],
     directives: [RegionComponent, ItemComponent, PriceBoardComponent],
   //  providers: [HTTP_PROVIDERS]
 })
