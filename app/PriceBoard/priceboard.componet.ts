@@ -1,8 +1,9 @@
-import {Component,OnInit} from '@angular/core';
-import {ItemTypesA ,ItemType, ItemTypeDescriptor} from '../EveItems/ItemTypes';
+import {Component, OnInit} from '@angular/core';
+import {ItemTypesA , ItemType, ItemTypeDescriptor} from '../EveItems/ItemTypes';
 import {Region, ISystem, ISystemDescriptor, ISystemShort, ISystemShortDescriptor} from '../Regions/IRegions';
 import {TypeValidator} from '../Assets/typescript-dotnet/source/System/TypeValidator';
 import {PricingService} from './evepricing.service';
+import 'rxjs/Rx';
 
 @Component ({
   selector: 'sel-items',
@@ -14,11 +15,11 @@ export class PriceBoardComponent implements OnInit{
     public selSystems: ISystemShort;
     public selEveItems: Array<ItemType>;
     public resItems: ItemTypesA;
-    constructor(evePriceService: PricingService) {}
+    constructor(private evePriceService: PricingService) { }
     private getDataAndStart = function(){
         let res: string;
          let restry = JSON.parse(localStorage.getItem('Systems'));
-         var first = false;
+         let first = false;
          first = restry.length && restry[0];
         const isd = new TypeValidator<ISystemShort[]>([ISystemShortDescriptor]);
         if(first) {
@@ -46,22 +47,19 @@ export class PriceBoardComponent implements OnInit{
           //Populate pricing data here
           let isys = 0;
           let iitem = 0;
-          for(isys = 0; isys < this.selSystems.length; isys++)
-          {
-            for(iitem = 0; iitem < this.selEveItems; iitem++)
-            {
+          for(isys = 0; isys < this.selSystems.length; isys++) {
+            for(iitem = 0; iitem < this.selEveItems; iitem++) {
               this.getPriceData(this.selSystems[isys].region, this.selEveItems[iitem].type.name);
             }
           }
-    }
+    };
 
     private getPriceData = function(region: string, itemhref: string){
-      
        this.evePriceService.getPriceData(region, itemhref).subscribe( res5 => {
                 this.resItems =  res5.items;
             });
-    }
-    ngOnInit(){
+    };
+    ngOnInit() {
       this.getDataAndStart();
     }
 }

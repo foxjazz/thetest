@@ -86,8 +86,7 @@ export class RegionComponent implements OnInit {
         }
         this.selSystems.push(systemshort);
         //JSON.stringify(this.selSystems);
-       
-       
+
         localStorage.setItem('Systems', JSON.stringify(this.selSystems));
           /*let res: string;
          res = localStorage.getItem('Systems');
@@ -109,40 +108,32 @@ export class RegionComponent implements OnInit {
       }
 
      getRegions(){
-        let res: string;
-         res = localStorage.getItem('Systems');
-         var restry = JSON.parse(res);
+         let restry = JSON.parse(localStorage.getItem('Systems'));
          /*console.log('res string from localstorage');
          console.log(res);
          console.log('object restry from localstorage');
          console.log (restry);*/
-         var first = restry.length && restry[0];
+         let first = restry.length && restry[0];
          const isd = new TypeValidator<ISystemShort[]>([ISystemShortDescriptor]);
-        if(first) {
-            if(isd.isSubsetOf(restry)) {
-              //data = restry;
+        if (first) {
+            if (isd.isSubsetOf(restry)) {
               this.selSystems = restry;
             };
-              
-            
+
         }
-         
          // first I  need to know if data is compantible with res
         // data = JSON.parse(res);
-         
+
          this.eveService.getRegions().subscribe(res2 => {
                 this.Regs =  res2.items.filter(function(el: Region): boolean{
-                  if(isNaN(+el.name.slice(-1)))
-                  {
+                  if ( isNaN(+el.name.slice(-1))) {
                    return true;
                   }
                 });
-                if (this.Regs.length > 0){
+                if (this.Regs.length > 0) {
                   this.loaded = true;
                 }
-                
-            });
-        
+           });
      }
 
      ngOnInit() {
