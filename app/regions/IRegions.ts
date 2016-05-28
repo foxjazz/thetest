@@ -11,6 +11,19 @@ export interface Region {
   name: string;
 }
 
+export interface ISystemShort{
+    regionid: string;
+    systemid: string;
+    region: string;
+    system: string;
+}
+export const ISystemShortDescriptor = {
+    regionid: String,
+    systemid: String,
+    region: String,
+    system: String
+}
+
 export interface ISystem {
   volume_str: string;
     buy: boolean;

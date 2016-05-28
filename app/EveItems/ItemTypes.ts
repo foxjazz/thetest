@@ -1,4 +1,6 @@
 
+
+export interface ItemTypesA {items: Array<ItemType>;}
 export interface ItemTypes { totalCount_str: string; pageCount: number; items: Array<ItemType>; }
 export interface ItemType { marketGroup: MarketGroup; Type: Type; id: number; id_str: string;  }
 
@@ -10,5 +12,5 @@ export const ItemTypeDescriptor = {
     marketGroup: { href: String, id: Number, id_str: String, },
     Type: {id_str: String, href: String, id: Number, name: String, icon: {href: String,}, },
     id: Number,
-    id_str: String,
+    id_str: String
 }

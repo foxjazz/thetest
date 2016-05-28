@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-import {Region, ISystem, ISystemDescriptor} from './IRegions';
+import {Region, ISystem, ISystemShortDescriptor, ISystemShort} from './IRegions';
 import { HTTPEveService } from './http-eve.service';
-import {HTTP_PROVIDERS} from '@angular/http';
+//import {HTTP_PROVIDERS} from '@angular/http';
 import {TypeValidator} from '../Assets/typescript-dotnet/source/System/TypeValidator';
 //import {localStorage} from '../Utilities/localStorageModule';
 import 'rxjs/Rx';
@@ -15,7 +15,7 @@ import 'rxjs/Rx';
     selector: 'sel-region',
     templateUrl: 'app/regions/region.component.html',
     styleUrls: ['app/app.css', 'app/assets/bootstrap/dist/css/bootstrap.min.css'],
-    providers: [HTTPEveService, HTTP_PROVIDERS]
+    providers: [HTTPEveService]
 })
 
 //[provide('localStorage', {useValue: window.localStorage})]
@@ -28,10 +28,14 @@ export class RegionComponent implements OnInit {
     private loaded = false;
     public avSystems: Array<ISystem>;
     private selRegion: Region;
-    private tempSys: Array<ISystem>;
-    public selSystems: Array<ISystem>;
+    private tempSys: Array<ISystemShort>;
+    public selSystems: Array<ISystemShort>;
+    private lastSelRegion: string;
+    private lastSelRegionId: string;
+    
       constructor(private eveService: HTTPEveService) { }
       
+
       private dupe = function(sys: Array<ISystem>): Array<ISystem>
       {
         let res: Array<ISystem>;
@@ -53,13 +57,13 @@ export class RegionComponent implements OnInit {
           }
         return res;
       };
-      public onRemoveStation(system: ISystem)
+      public onRemoveStation(systemshort: ISystemShort)
       {
         this.tempSys = this.selSystems;
-        this.selSystems = new Array<ISystem>();
+        this.selSystems = new Array<ISystemShort>();
         let i = 0;
         for (i = 0; i < this.tempSys.length; i++) {
-          if (system === this.tempSys[i]) {
+          if (systemshort === this.tempSys[i]) {
             continue;
           }
           this.selSystems.push(this.tempSys[i]);
@@ -67,18 +71,23 @@ export class RegionComponent implements OnInit {
       }
     public onSelectStation(system: ISystem){
       if(this.selSystems == null){
-        this.selSystems = new Array<ISystem>();
+        this.selSystems = new Array<ISystemShort>();
       }
+      var systemshort: ISystemShort = <ISystemShort>{};
+      systemshort.region = this.lastSelRegion;
+      systemshort.regionid = this.lastSelRegionId;
+      systemshort.system = system.location.name;
+      systemshort.systemid = system.location.id_str;
       let i = 0;
         for (i = 0; i < this.selSystems.length; i++) {
-          if (system === this.selSystems[i]) {
+          if (systemshort === this.selSystems[i]) {
             return;
           }
         }
-        this.selSystems.push(system);
+        this.selSystems.push(systemshort);
         //JSON.stringify(this.selSystems);
-       /* let data: Array<ISystem>;
-        data = JSON.parse(JSON.stringify(this.selSystems));*/
+       
+       
         localStorage.setItem('Systems', JSON.stringify(this.selSystems));
           /*let res: string;
          res = localStorage.getItem('Systems');
@@ -92,6 +101,8 @@ export class RegionComponent implements OnInit {
     
       public onSelectRegion(region: Region) {
         this.selRegion = region;
+        this.lastSelRegion = region.name;
+        this.lastSelRegionId = region.id_str;
         this.eveService.getSystems(this.selRegion.id_str).subscribe(res => {
           this.avSystems = this.dupe(res.items);
         });
@@ -99,16 +110,14 @@ export class RegionComponent implements OnInit {
 
      getRegions(){
         let res: string;
-         let data: Array<ISystem> = new Array<ISystem>();
          res = localStorage.getItem('Systems');
-         
          var restry = JSON.parse(res);
          /*console.log('res string from localstorage');
          console.log(res);
          console.log('object restry from localstorage');
          console.log (restry);*/
          var first = restry.length && restry[0];
-         const isd = new TypeValidator<ISystem[]>([ISystemDescriptor]);
+         const isd = new TypeValidator<ISystemShort[]>([ISystemShortDescriptor]);
         if(first) {
             if(isd.isSubsetOf(restry)) {
               //data = restry;
@@ -121,8 +130,8 @@ export class RegionComponent implements OnInit {
          // first I  need to know if data is compantible with res
         // data = JSON.parse(res);
          
-         this.eveService.getRegions().subscribe(res => {
-                this.Regs =  res.items.filter(function(el: Region): boolean{
+         this.eveService.getRegions().subscribe(res2 => {
+                this.Regs =  res2.items.filter(function(el: Region): boolean{
                   if(isNaN(+el.name.slice(-1)))
                   {
                    return true;

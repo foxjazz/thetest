@@ -26,8 +26,8 @@
         </ul>
          <h3> >>>  Selected Stations </h3>
         <ul class=halblue>
-             <li *ngFor="let System of selSystems" [class.halselected]="hal === selectedHal" (click)="onRemoveStation(System)">
-                {{ System.location.name }} 
+             <li *ngFor="let sysshort of selSystems" [class.halselected]="hal === selectedHal" (click)="onRemoveStation(sysshort)">
+                {{ sysshort.system }} 
              </li>
         </ul>
       </div>
