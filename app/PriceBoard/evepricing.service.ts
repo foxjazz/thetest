@@ -12,7 +12,7 @@ export class PricingService {
     public e: Array<Object>;
     result: Object;
     constructor(private http: Http, uri: string) { }
-    public getPriceData(regionid: string, typehref: string): Observable<ItemTypesA> {
+    public getPriceData(regionid: string, typehref: string): Observable<ItemTypes> {
         this.uri = "https://crest-tq.eveonline.com/market/" + regionid + "/orders/sell/?type=" + typehref;
         return this.http.get(this.uri)
             .map((res: Response) => res.json());

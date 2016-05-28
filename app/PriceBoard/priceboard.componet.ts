@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ItemTypesA , ItemType, ItemTypeDescriptor} from '../EveItems/ItemTypes';
+import {ItemTypes , ItemType, ItemTypeDescriptor} from '../EveItems/ItemTypes';
 import {Region, ISystem, ISystemDescriptor, ISystemShort, ISystemShortDescriptor} from '../Regions/IRegions';
 import {TypeValidator} from '../Assets/typescript-dotnet/source/System/TypeValidator';
 import {PricingService} from './evepricing.service';
@@ -14,7 +14,7 @@ import 'rxjs/Rx';
 export class PriceBoardComponent implements OnInit{
     public selSystems: ISystemShort;
     public selEveItems: Array<ItemType>;
-    public resItems: ItemTypesA;
+    public resItems: ItemTypes;
     constructor(private evePriceService: PricingService) { }
     private getDataAndStart = function(){
         let res: string;
@@ -55,7 +55,7 @@ export class PriceBoardComponent implements OnInit{
     };
 
     private getPriceData = function(region: string, itemhref: string){
-       this.evePriceService.getPriceData(region, itemhref).subscribe( res5 => {
+       this.evePriceService.getPriceData(region, itemhref).subscribe( (res5: ItemTypes) => {
                 this.resItems =  res5.items;
             });
     };

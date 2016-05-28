@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {RegionComponent} from './regions/region.component';
 import {ItemComponent} from './EveItems/item.component';
+import {PriceBoardComponent} from './PriceBoard/priceboard.componet'
 //import {HTTP_PROVIDERS} from '@angular/http';
 //import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
@@ -11,6 +12,7 @@ import 'rxjs/Rx';
     <nav>
         <a (click)="menuitem('region')">Region</a>
         <a (click)="menuitem('items')">Items</a>
+        <a (click)="menuitem('pb')">Price Board</a>
     </nav>
     <div id="region">
         <sel-region> loading test </sel-region>
@@ -18,8 +20,11 @@ import 'rxjs/Rx';
     <div id="items">
         <sel-items> loading items </sel-items>
     </div>
+    <div id="pb">
+        <price-board> loading items </price-board>
+    </div>
     `,
-    directives: [RegionComponent,ItemComponent],
+    directives: [RegionComponent, ItemComponent, PriceBoardComponent],
   //  providers: [HTTP_PROVIDERS]
 })
 
@@ -32,13 +37,21 @@ export class AppComponent {
                 /*this.region = 'visible';
                 this.items = 'hidden';*/
                 document.getElementById('items').hidden = true;
+                document.getElementById('pb').hidden = true;
+                document.getElementById('region').hidden = false;
+                
             }
             break;
             case 'items': {
-                this.region = 'hidden';
-                this.items = 'visible';
                 document.getElementById('region').hidden = true;
+                document.getElementById('pb').hidden = true;
                  document.getElementById('items').hidden = false;
+            }
+            break;
+            case 'pb': {
+                document.getElementById('region').hidden = true;
+                 document.getElementById('items').hidden = true;
+                 document.getElementById('pb').hidden = false;
             }
             break;
         }

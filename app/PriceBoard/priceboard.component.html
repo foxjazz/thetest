@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+    
+    <h2> Please pick your items </h2>
+    <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+    <div class="row">
+      <div class="col-xs-4">
+            
+      </div>
+      <div class="col-xs-5">
+        <h3> Price Data </h3>
+        <ul>
+            <li *ngFor= "let data = resItems.items">
+                <canvas>
+                    
+                </canvas>
+            </li>
+        </ul>
+      </div>
+  </div>
