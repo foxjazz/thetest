@@ -1,19 +1,19 @@
 {
   "_args": [
     [
-      "typescript-dotnet",
+      "typescript-dotnet@*",
       "J:\\a3\\evehaslegs2"
     ]
   ],
   "_from": "typescript-dotnet@*",
-  "_id": "typescript-dotnet@2.17.0",
+  "_id": "typescript-dotnet@2.18.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/typescript-dotnet",
   "_nodeVersion": "5.6.0",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/typescript-dotnet-2.17.0.tgz_1464332702516_0.07471590512432158"
+    "tmp": "tmp/typescript-dotnet-2.18.2.tgz_1464420395673_0.4343104299623519"
   },
   "_npmUser": {
     "email": "npm@electrified.net",
@@ -23,19 +23,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "typescript-dotnet",
-    "raw": "typescript-dotnet",
-    "rawSpec": "",
+    "raw": "typescript-dotnet@*",
+    "rawSpec": "*",
     "scope": null,
     "spec": "*",
     "type": "range"
   },
   "_requiredBy": [
-    "#USER"
+    "/"
   ],
-  "_resolved": "https://registry.npmjs.org/typescript-dotnet/-/typescript-dotnet-2.17.0.tgz",
-  "_shasum": "6a8271af8dd84a63148815a66189179d6bd7384b",
+  "_resolved": "https://registry.npmjs.org/typescript-dotnet/-/typescript-dotnet-2.18.2.tgz",
+  "_shasum": "107ec7047544c8fd3a4b1a8d87999656ec4f16cd",
   "_shrinkwrap": null,
-  "_spec": "typescript-dotnet",
+  "_spec": "typescript-dotnet@*",
   "_where": "J:\\a3\\evehaslegs2",
   "author": {
     "email": "npm@electrified.net",
@@ -76,10 +76,10 @@
     "lib": "./source"
   },
   "dist": {
-    "shasum": "6a8271af8dd84a63148815a66189179d6bd7384b",
-    "tarball": "https://registry.npmjs.org/typescript-dotnet/-/typescript-dotnet-2.17.0.tgz"
+    "shasum": "107ec7047544c8fd3a4b1a8d87999656ec4f16cd",
+    "tarball": "https://registry.npmjs.org/typescript-dotnet/-/typescript-dotnet-2.18.2.tgz"
   },
-  "gitHead": "83f81c4ae9bed96f984b1ba4afe81ddbdb35b03b",
+  "gitHead": "16cda78d3bb640adcf72e415b5379f22dd00d66a",
   "homepage": "https://github.com/electricessence/TypeScript.NET#readme",
   "keywords": [
     ".NET",
@@ -106,5 +106,5 @@
   },
   "scripts": {},
   "typings": {},
-  "version": "2.17.0"
+  "version": "2.18.2"
 }

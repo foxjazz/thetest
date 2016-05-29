@@ -7,10 +7,7 @@ import {ItemTypes} from '../EveItems/ItemTypes';
 @Injectable()
 export class PricingService {
     private uri = 'https://crest-tq.eveonline.com/regions/';
-    public loading: boolean;
-    public e: Array<Object>;
-    result: Object;
-    constructor(private http: Http, uri: string) { }
+    constructor(private http: Http) { }
     public getPriceData(regionid: string, typehref: string): Observable<ItemTypes> {
         this.uri = "https://crest-tq.eveonline.com/market/" + regionid + "/orders/sell/?type=" + typehref;
         return  this.http.get(this.uri)
