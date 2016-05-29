@@ -1,16 +1,10 @@
 import { Component, OnInit} from '@angular/core';
 import {Region, ISystem, ISystemShortDescriptor, ISystemShort} from './IRegions';
 import { HTTPEveService } from './http-eve.service';
-//import {HTTP_PROVIDERS} from '@angular/http';
 import {TypeValidator} from '../Assets/typescript-dotnet/source/System/TypeValidator';
-//import {localStorage} from '../Utilities/localStorageModule';
 import 'rxjs/Rx';
 
-//import {Regions} from './mock2-Regions';
-// remember to run tsd install package to definitely type these.
 // package.json has the dependency list
-
-
 @Component({
     selector: 'sel-region',
     templateUrl: 'app/regions/region.component.html',
@@ -133,7 +127,7 @@ export class RegionComponent implements OnInit {
                 if (this.Regs.length > 0) {
                   this.loaded = true;
                 }
-           });
+           }, err => console.log('Something went wrong: ' + err.message));
      }
 
      ngOnInit() {

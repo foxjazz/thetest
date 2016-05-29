@@ -2,14 +2,18 @@ import {Injectable} from '@angular/core';
 import {  Http, Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {ItemTypes} from '../EveItems/ItemTypes';
+import {PriceTypes} from './pricetypes';
 
 @Injectable()
-export class PricingService {
-    private uri = 'https://crest-tq.eveonline.com/regions/';
+export class EvePricingService {
+    //private uri = 'https://crest-tq.eveonline.com/regions/';
+    private uri: string;
+    //public regionid: string;
+    //public typehref: string;
     constructor(private http: Http) { }
-    public getPriceData(regionid: string, typehref: string): Observable<ItemTypes> {
-        this.uri = "https://crest-tq.eveonline.com/market/" + regionid + "/orders/sell/?type=" + typehref;
+    getPriceData(regionid: string, typehref: string): Observable<PriceTypes> {
+        this.uri = 'https://crest-tq.eveonline.com/market/' + regionid + '/orders/sell/?type=' + typehref;
+        console.log('URI for price data' + this.uri);
         return  this.http.get(this.uri)
             .map((res: Response) => res.json());
 

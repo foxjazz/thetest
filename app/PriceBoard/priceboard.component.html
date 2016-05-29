@@ -4,12 +4,13 @@
     
     <div>
         <h1> Price Data </h1>
+        <h3> <button (click)="refreshData()">refresh data</button></h3>
         <ul class="darkman">
             <li *ngFor= "let data = resItems">
                 <h3> canvas </h3>
-                <canvas width="600" height="100" id= data.type.id_str>
+                <!--<canvas width="600" height="100" id= data.type.id_str>
                     
-                </canvas>
+                </canvas>-->
             </li>
         </ul>
      </div>

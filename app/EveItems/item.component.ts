@@ -32,7 +32,7 @@ export class ItemComponent implements OnInit{
               this.selItemTypes = restry;
             }
             else {
-                this.selItemTypes = new Array<ItemType>();    
+                this.selItemTypes = restry;
             }
         }
         else {  

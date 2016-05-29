@@ -1,22 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemTypes, ItemType, ItemTypeDescriptor} from '../EveItems/ItemTypes';
+import {PriceTypes, items} from './pricetypes';
 import {ISystemShort, ISystemShortDescriptor} from '../Regions/IRegions';
 import {TypeValidator} from '../Assets/typescript-dotnet/source/System/TypeValidator';
-import {TestService} from './Test.service';
+import {EvePricingService} from './evepricing.service';
 import 'rxjs/Rx';
 @Component({
-  selector: 'sel-testboard',
+  selector: 'sel-pb',
   templateUrl: 'app/PriceBoard/priceboard.component.html',
   //styleUrls: ['app/PriceBoard/canvas.css'],
-  providers: [TestService]
+  providers: [EvePricingService]
 })
 export class PriceBoardComponent implements OnInit {
   public selSystems: Array<ISystemShort>;
   public selEveItems: Array<ItemType>;
-  public resItems: Array<ItemType>;
-  
+  public resItems: Array<items>;
+  constructor (private evePricingService: EvePricingService){}
   ngOnInit() {
-     this.resItems = new Array<ItemType>();
+     
      this.selSystems = new Array<ISystemShort>();
     let restry = JSON.parse(localStorage.getItem('Systems'));
     let first = false;
@@ -34,24 +35,28 @@ export class PriceBoardComponent implements OnInit {
     if (first && isdt.isSubsetOf(restry)) {
       this.selEveItems = restry;
     } else {
-      return;
+      this.selEveItems = restry;
     }
     this.DoAllSelections();
   }
-  private DoAllSelections = function(){
+  refreshData(){
+    this.DoAllSelections();
+  }
+  private callPriceData(regionid: string, itemhref: string) {
+       this.evePricingService.getPriceData(regionid, itemhref).subscribe( res => {
+                this.resItems =  res.items;
+                console.log(this.resItems);
+            },
+            err => console.log('Something went wrong:' + err.message));
+    }
+  private DoAllSelections(){
        let isys = 0;
           let iitem = 0;
           for (isys = 0; isys < this.selSystems.length; isys++) {
-            for (iitem = 0; iitem < this.selEveItems; iitem++) {
-              this.getPriceData(this.selSystems[isys].region, this.selEveItems[iitem].type.name);
+            for (iitem = 0; iitem < this.selEveItems.length; iitem++) {
+              this.callPriceData(this.selSystems[isys].regionid, this.selEveItems[iitem].type.href);
             }
           }
     }
-    private getPriceData = function(region: string, itemhref: string): void{
-      
-       this.evePriceService.getPriceData(region, itemhref).subscribe( (res5: ItemTypes) => {
-                this.resItems =  res5.items;
-                console.log(this.resItems);
-            });
-    };
+    
 }

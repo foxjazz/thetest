@@ -12,5 +12,5 @@ export const ItemTypeDescriptor = {
     marketGroup: { href: String, id: Number, id_str: String, },
     Type: {id_str: String, href: String, id: Number, name: String, icon: {href: String,}, },
     id: Number,
-    id_str: String
+    id_str: String,
 }
