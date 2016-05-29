@@ -10,7 +10,7 @@ import 'rxjs/Rx';
   //styleUrls: ['app/PriceBoard/canvas.css'],
   providers: [TestService]
 })
-export class testComponent implements OnInit {
+export class PriceBoardComponent implements OnInit {
   public selSystems: Array<ISystemShort>;
   public selEveItems: Array<ItemType>;
   public resItems: Array<ItemType>;
@@ -48,9 +48,10 @@ export class testComponent implements OnInit {
           }
     }
     private getPriceData = function(region: string, itemhref: string): void{
-      return;
-      /* this.evePriceService.getPriceData(region, itemhref).subscribe( (res5: ItemTypes) => {
+      
+       this.evePriceService.getPriceData(region, itemhref).subscribe( (res5: ItemTypes) => {
                 this.resItems =  res5.items;
-            });*/
+                console.log(this.resItems);
+            });
     };
 }

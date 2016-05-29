@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {RegionComponent} from './regions/region.component';
 import {ItemComponent} from './EveItems/item.component';
-import {PriceBoardComponent} from './PriceBoard/priceboard.component'
+import {PriceBoardComponent} from './PriceBoard/priceboard.component';
 //import {testComponent} from './PriceBoard/test.component';
 //import {HTTP_PROVIDERS} from '@angular/http';
 //import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
