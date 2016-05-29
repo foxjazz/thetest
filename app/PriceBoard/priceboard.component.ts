@@ -15,10 +15,10 @@ export class PriceBoardComponent implements OnInit {
   public selSystems: Array<ISystemShort>;
   public selEveItems: Array<ItemType>;
   public resItems: Array<items>;
-  constructor (private evePricingService: EvePricingService){}
+  constructor(private evePricingService: EvePricingService) { }
   ngOnInit() {
-     
-     this.selSystems = new Array<ISystemShort>();
+
+    this.selSystems = new Array<ISystemShort>();
     let restry = JSON.parse(localStorage.getItem('Systems'));
     let first = false;
     first = restry.length && restry[0];
@@ -28,35 +28,35 @@ export class PriceBoardComponent implements OnInit {
     } else {
       return;
     }
-    restry = JSON.parse(localStorage.getItem('SelEveItems'));
-    if (restry != null)
-      first = restry.length && restry[0];
-    const isdt = new TypeValidator<ItemType[]>([ItemTypeDescriptor]);
-    if (first && isdt.isSubsetOf(restry)) {
-      this.selEveItems = restry;
-    } else {
-      this.selEveItems = restry;
-    }
+      let res = localStorage.getItem('SelEveItems');
+         if(res.indexOf('marketGroup') > 0)
+         {
+             let restry = JSON.parse(res);
+             this.selEveItems = restry;
+         }
+        else {  
+            this.selEveItems = new Array<ItemType>(); 
+            } 
     this.DoAllSelections();
   }
-  refreshData(){
+  refreshData() {
     this.DoAllSelections();
   }
   private callPriceData(regionid: string, itemhref: string) {
-       this.evePricingService.getPriceData(regionid, itemhref).subscribe( res => {
-                this.resItems =  res.items;
-                console.log(this.resItems);
-            },
-            err => console.log('Something went wrong:' + err.message));
+    this.evePricingService.getPriceData(regionid, itemhref).subscribe(res => {
+      this.resItems = res.items;
+      console.log(this.resItems);
+    },
+      err => console.log('Something went wrong:' + err.message));
+  }
+  private DoAllSelections() {
+    let isys = 0;
+    let iitem = 0;
+    for (isys = 0; isys < this.selSystems.length; isys++) {
+      for (iitem = 0; iitem < this.selEveItems.length; iitem++) {
+        this.callPriceData(this.selSystems[isys].regionid, this.selEveItems[iitem].type.href);
+      }
     }
-  private DoAllSelections(){
-       let isys = 0;
-          let iitem = 0;
-          for (isys = 0; isys < this.selSystems.length; isys++) {
-            for (iitem = 0; iitem < this.selEveItems.length; iitem++) {
-              this.callPriceData(this.selSystems[isys].regionid, this.selEveItems[iitem].type.href);
-            }
-          }
-    }
-    
+  }
+
 }

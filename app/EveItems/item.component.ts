@@ -17,25 +17,17 @@ export class ItemComponent implements OnInit{
     public onClearItems(){
         this.selItemTypes = new Array<ItemType>();
     }
-    
+    onGetTypes() { this.getTypes(); }
     private getTypes = function () {
         let res: string;
         this.allItemTypes = this.eveTypeService.getItemTypes();
          res = localStorage.getItem('SelEveItems');
-         let restry = JSON.parse(res);
-         let first = false;
-         if(restry != null)
-            first = restry.length && restry[0];
-         const isd = new TypeValidator<ItemType[]>([ItemTypeDescriptor]);
-        if (first) {
-            if(isd.isSubsetOf(restry)) {
-              this.selItemTypes = restry;
-            }
-            else {
-                this.selItemTypes = restry;
-            }
-        }
-        else {  
+         if(res.indexOf('marketGroup') > 0)
+         {
+             let restry = JSON.parse(res);
+             this.selItemTypes = restry;
+         }
+         else {  
             this.selItemTypes = new Array<ItemType>(); 
             } 
     }

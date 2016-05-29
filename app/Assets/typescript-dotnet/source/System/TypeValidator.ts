@@ -118,6 +118,9 @@ export class TypeValidator<T> {
 	}
 
 	isSubsetOf(o:any):o is T {
+		if (o == null || o.length === 0){
+			return false;
+		}		
 		var t = new TypeInfoHelper(o);
 		return t.contains(this._typeDescriptor);
 	}
