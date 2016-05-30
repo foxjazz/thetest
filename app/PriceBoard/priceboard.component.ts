@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemType} from '../EveItems/ItemTypes';
 import {items, PriceData, PriceBand} from './pricetypes';
-import {ISystemShort, ISystemShortDescriptor} from '../Regions/IRegions';
+import {ISystemShort} from '../regions/IRegions';
 import {EvePricingService} from './evepricing.service';
 import 'rxjs/Rx';
 @Component({
