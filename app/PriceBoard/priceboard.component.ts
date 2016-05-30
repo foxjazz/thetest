@@ -51,6 +51,7 @@ export class PriceBoardComponent implements OnInit {
     let filtered: Array<items>;
     let i = 0;
     let pp = new Array<PriceData>();
+    let pps = new Array<PriceData>();
     for(i = 0; i < data.length; i++)
     {
       if(data[i].buy === false){
@@ -64,11 +65,12 @@ export class PriceBoardComponent implements OnInit {
         pp.push(p);
       }
     }
+    pps = pp.sort((left,right): number => {if(left.price < right.price) return -1; if(left.price > right.price) return 1; else return 0;});
     // NEW INTERFACE OBJECT
     let npb: PriceBand = {
       region: region,
       itemname: itemname,
-      pricedata: pp
+      pricedata: pps
     };
     this.priceBandA.push(npb);
   }

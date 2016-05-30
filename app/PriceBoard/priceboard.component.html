@@ -8,10 +8,16 @@
         <h3> <button (click)="refreshData()">refresh data</button></h3>
         <ul class="heroes">
             <li *ngFor="let data of priceBandA">
-                region: = {{data.region}}, item: {{data.itemname}}
-              <!--  <li *ngFor="let md of priceBandA.pricedata">
-                    price: {{md.price}}
-                </li>-->
+                region: {{data.region}}, item: {{data.itemname}}
+                <ul>
+                <li id="quad" *ngFor="let md of data.pricedata">
+                    price: {{md.price}}   
+                    volume: {{md.volume}} 
+                    range: {{md.range}}
+                    station: {{md.location}} 
+                </li> 
+                
+                </ul>
                 <!--<canvas width="600" height="100" id= data.type.id_str>
                     
                 </canvas>-->
