@@ -28,7 +28,7 @@ import 'rxjs/Rx';
         <sel-pb> loading canvas </sel-pb>
     </div>
     `,
-    styleUrls: ['app/app.css', 'app/assets/bootstrap/dist/css/bootstrap.min.css'],
+    styleUrls: ['app/app.css', 'app/Assets/bootstrap/dist/css/bootstrap.min.css'],
     directives: [RegionComponent, ItemComponent, PriceBoardComponent, HelpComponent],
   //  providers: [HTTP_PROVIDERS]
 })
