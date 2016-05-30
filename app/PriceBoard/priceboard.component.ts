@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ItemTypes, ItemType, ItemTypeDescriptor} from '../EveItems/ItemTypes';
-import {PriceTypes, items, PriceData, PriceBand} from './pricetypes';
+import {ItemType} from '../EveItems/ItemTypes';
+import {items, PriceData, PriceBand} from './pricetypes';
 import {ISystemShort, ISystemShortDescriptor} from '../Regions/IRegions';
-import {TypeValidator} from '../Assets/typescript-dotnet/source/System/TypeValidator';
 import {EvePricingService} from './evepricing.service';
 import 'rxjs/Rx';
 @Component({
@@ -22,25 +21,13 @@ export class PriceBoardComponent implements OnInit {
     this.priceBandA = new Array<PriceBand>();
     document.getElementById('noData').hidden = true;
     this.selSystems = new Array<ISystemShort>();
-    let restry = JSON.parse(localStorage.getItem('Systems'));
-    let first = false;
-    first = restry.length && restry[0];
-    const isd = new TypeValidator<ISystemShort[]>([ISystemShortDescriptor]);
-    if (first && isd.isSubsetOf(restry)) {
-      this.selSystems = restry;
+    let jsondata = localStorage.getItem('Systems');
+    if (jsondata.IndexOf('volumeEntered') > 0)     {
+      this.selSystems =JSON.parse(jsondata);
     } else {
-      document.getElementById('noData').hidden = false;
-      return;
+        document.getElementById('noData').hidden = false;
+        return;
     }
-      let res = localStorage.getItem('SelEveItems');
-         if(res.indexOf('marketGroup') > 0)
-         {
-             let restry = JSON.parse(res);
-             this.selEveItems = restry;
-         }
-        else {  
-            document.getElementById('noData').hidden = false;
-            } 
     this.DoAllSelections();
   }
   refreshData() {

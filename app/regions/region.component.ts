@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import {Region, ISystem, ISystemShortDescriptor, ISystemShort} from './IRegions';
 import { HTTPEveService } from './http-eve.service';
-import {TypeValidator} from '../Assets/typescript-dotnet/source/System/TypeValidator';
 import 'rxjs/Rx';
 
 // package.json has the dependency list
@@ -109,15 +108,11 @@ export class RegionComponent implements OnInit {
          console.log(res);
          console.log('object restry from localstorage');
          console.log (restry);*/
-         let first = restry.length && restry[0];
-         const isd = new TypeValidator<ISystemShort[]>([ISystemShortDescriptor]);
-        if (first) {
-            if (isd.isSubsetOf(restry)) {
-              this.selSystems = restry;
-            };
-
-        }
-         // first I  need to know if data is compantible with res
+         let jsondata = localStorage.getItem('Systems');
+         if (jsondata.IndexOf('volumeEntered') > 0)     {
+           this.selSystems =JSON.parse(jsondata);
+         }
+// first I  need to know if data is compantible with res
         // data = JSON.parse(res);
 
          this.eveService.getRegions().subscribe(res2 => {
