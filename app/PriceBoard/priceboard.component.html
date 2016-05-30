@@ -4,10 +4,14 @@
     
     <div>
         <h1> Price Data </h1>
+        <h3 class="error" id="noData"> No Data Selected </h3>
         <h3> <button (click)="refreshData()">refresh data</button></h3>
-        <ul class="darkman">
-            <li *ngFor= "let data = resItems">
-                <h3> canvas </h3>
+        <ul class="heroes">
+            <li *ngFor="let data of priceBandA">
+                region: = {{data.region}}, item: {{data.itemname}}
+              <!--  <li *ngFor="let md of priceBandA.pricedata">
+                    price: {{md.price}}
+                </li>-->
                 <!--<canvas width="600" height="100" id= data.type.id_str>
                     
                 </canvas>-->
