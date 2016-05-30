@@ -21,7 +21,7 @@ export class ItemComponent implements OnInit{
         let res: string;
         this.allItemTypes = this.eveTypeService.getItemTypes();
          res = localStorage.getItem('SelEveItems');
-         if(res.indexOf('marketGroup') > 0)
+         if(res != null && res.indexOf('marketGroup') > 0)
          {
              let restry = JSON.parse(res);
              this.selItemTypes = restry;
