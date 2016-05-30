@@ -5,7 +5,7 @@ import {ItemType, ItemTypeDescriptor} from './ItemTypes';
 @Component ({
   selector: 'sel-items',
   templateUrl: 'app/EveItems/item.component.html',
-  styleUrls: ['app/app.css', 'app/assets/bootstrap/dist/css/bootstrap.min.css'],
+  styleUrls: ['app/app.css', 'app/Assets/bootstrap/dist/css/bootstrap.min.css'],
   providers: [ItemTypesService]
 })
 export class ItemComponent implements OnInit{
