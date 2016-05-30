@@ -30,15 +30,15 @@ export class RegionComponent implements OnInit {
       constructor(private eveService: HTTPEveService) { }
       
 
-      private dupe = function(sys: Array<ISystem>): Array<ISystem>
+      private dedupe(sys: Array<ISystem>): Array<ISystem>
       {
         let res: Array<ISystem>;
         res = new Array<ISystem>();
         let flag = false;
           for ( let i = 0; i < sys.length; i++ ) {
-            if (res == null){
-              res.push(sys[i])
-              i++;
+            flag = false;
+            if (i === 0) {
+              res.push(sys[i]);
             }
             for (let i1 = 0; i1 < res.length; i1++) {
               if(sys[i].location.name === res[i1].location.name) {
@@ -48,9 +48,11 @@ export class RegionComponent implements OnInit {
             if (!flag){
                res.push(sys[i]);
             }
+            i++;
           }
         return res;
       };
+      
       public onRemoveStation(systemshort: ISystemShort)
       {
         this.tempSys = this.selSystems;
@@ -97,7 +99,7 @@ export class RegionComponent implements OnInit {
         this.lastSelRegion = region.name;
         this.lastSelRegionId = region.id_str;
         this.eveService.getSystems(this.selRegion.id_str).subscribe(res => {
-          this.avSystems = this.dupe(res.items);
+          this.avSystems = this.dedupe(res.items);
         });
       }
 

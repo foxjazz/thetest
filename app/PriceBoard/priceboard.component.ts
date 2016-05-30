@@ -44,6 +44,7 @@ export class PriceBoardComponent implements OnInit {
     this.DoAllSelections();
   }
   refreshData() {
+    this.priceBandA = new Array<PriceBand>();
     this.DoAllSelections();
   }
   
