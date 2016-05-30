@@ -1,7 +1,6 @@
 import {Component,OnInit} from '@angular/core';
 import {ItemTypesService} from './ItemTypes.service';
 import {ItemType, ItemTypeDescriptor} from './ItemTypes';
-import {TypeValidator} from '../Assets/typescript-dotnet/source/System/TypeValidator';
 
 @Component ({
   selector: 'sel-items',

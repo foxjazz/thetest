@@ -1,0 +1,31 @@
+[ERR!] cwd  : J:\a3\evehaslegs2
+[ERR!] os   : Windows_NT 10.0.10586
+[ERR!] argv : "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Joe\\AppData\\Roaming\\npm\\node_modules\\tsd\\build\\cli.js" "reinstall" "--clean"
+[ERR!] node : v5.5.0
+[ERR!] tsd  : 0.6.5
+[ERR!] Error: ENOTEMPTY: directory not empty, rmdir 'J:\a3\evehaslegs2\typings\globals'
+[ERR!] CODE : ENOTEMPTY
+[ERR!] ENOTEMPTY: directory not empty, rmdir 'J:\a3\evehaslegs2\typings\globals'
+[ERR!] If you need help, you may report this error at:
+    https://github.com/DefinitelyTyped/tsd/issues
+
+[ERR!] 
+Error: ENOTEMPTY: directory not empty, rmdir 'J:\a3\evehaslegs2\typings\globals'
+    at Error (native)
+    at Object.fs.rmdirSync (fs.js:806:18)
+    at syncDeleteFolderRecursive (C:\Users\Joe\AppData\Roaming\npm\node_modules\tsd\build\xm\fileIO.js:325:12)
+    at Object.removeDirSync (C:\Users\Joe\AppData\Roaming\npm\node_modules\tsd\build\xm\fileIO.js:186:5)
+    at C:\Users\Joe\AppData\Roaming\npm\node_modules\tsd\build\tsd\logic\Installer.js:79:24
+    at Array.forEach (native)
+    at Installer.removeUnusedReferences (C:\Users\Joe\AppData\Roaming\npm\node_modules\tsd\build\tsd\logic\Installer.js:77:44)
+    at C:\Users\Joe\AppData\Roaming\npm\node_modules\tsd\build\tsd\API.js:120:38
+    at tryCatch1 (C:\Users\Joe\AppData\Roaming\npm\node_modules\tsd\node_modules\bluebird\js\main\util.js:63:19)
+    at Promise$_callHandler [as _callHandler] (C:\Users\Joe\AppData\Roaming\npm\node_modules\tsd\node_modules\bluebird\js\main\promise.js:695:13)
+
+[ERR!] tsd.json could not be retrieved
+
+[ERR!] .tsdrc could not be retrieved
+
+[ERR!] Please include the following file with any support request:
+    J:\a3\evehaslegs2\tsd-debug.log
+

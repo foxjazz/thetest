@@ -22,12 +22,21 @@ export class PriceBoardComponent implements OnInit {
     document.getElementById('noData').hidden = true;
     this.selSystems = new Array<ISystemShort>();
     let jsondata = localStorage.getItem('Systems');
-    if (jsondata.IndexOf('volumeEntered') > 0)     {
+    if (jsondata.indexOf('volumeEntered') > 0)     {
       this.selSystems =JSON.parse(jsondata);
     } else {
         document.getElementById('noData').hidden = false;
         return;
     }
+    
+     jsondata = localStorage.getItem('SelEveItems');
+         if(jsondata.indexOf('marketGroup') > 0)
+         {
+             let restry = JSON.parse(jsondata);
+             this.selEveItems = restry;
+         }  else {  
+            this.selEveItems = new Array<ItemType>();
+         }
     this.DoAllSelections();
   }
   refreshData() {
