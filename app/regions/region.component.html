@@ -10,26 +10,7 @@
                 {{ System.location.name }} 
              </li>
            </ul>-->
-      <ul class=heroes>
-          <li *ngFor="let Region of Regs" [class.selected]="hero === selectedHero" (click)="onSelectRegion(Region)">
-           <span class="badge">{{Region.id_str}}</span> {{ Region.name }}
-          
-            </li>
-      </ul>
-      </div>
-      <div class="col-xs-5">
-        <h3> >>>  Systems </h3>
-       <ul class=hal>
-             <li *ngFor="let System of avSystems" [class.halselected]="hal === selectedHal" (click)="onSelectStation(System)">
-                {{ System.location.name }} 
-             </li>
-        </ul>
-         <h3> >>>  Selected Stations </h3>
-        <ul class=halblue>
-             <li *ngFor="let sysshort of selSystems" [class.halselected]="hal === selectedHal" (click)="onRemoveStation(sysshort)">
-                {{ sysshort.system }} 
-             </li>
-        </ul>
-      </div>
+     <h3> This is the Region Page </h3>
+     <h3> localstorage data: {{storage}} </h3>
   </div>
   <h2> loading status = {{loaded}} </h2>

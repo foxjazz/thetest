@@ -17,7 +17,7 @@ export class RegionComponent implements OnInit {
     public title: string = 'Regions List';
     private errorMessage: string = '';
     public Regs: Array<Region>;
-    
+    public storage: string;
     private loaded = false;
     public avSystems: Array<ISystem>;
     private selRegion: Region;
@@ -128,7 +128,9 @@ export class RegionComponent implements OnInit {
      }
 
      ngOnInit() {
-    this.getRegions();
+       localStorage.setItem('storage','My New Local Storage Data');
+       this.storage = localStorage.getItem('storage')
+    //this.getRegions();
   }
 }
 

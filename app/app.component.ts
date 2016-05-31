@@ -24,9 +24,7 @@ import 'rxjs/Rx';
         <sel-items> loading items </sel-items>
     </div>
    
-    <div id="pb">
-        <sel-pb> loading canvas </sel-pb>
-    </div>
+   
     `,
     styleUrls: ['app/app.css', 'app/Assets/bootstrap/dist/css/bootstrap.min.css'],
     directives: [RegionComponent, ItemComponent, PriceBoardComponent, HelpComponent],
@@ -37,7 +35,6 @@ export class AppComponent implements OnInit {
     constructor(){}
     public menuitem(itm: string){
                 document.getElementById('items').hidden = true;
-                document.getElementById('pb').hidden = true;
                 document.getElementById('region').hidden = true;
                   document.getElementById('help').hidden = true;
         switch(itm){
@@ -51,10 +48,6 @@ export class AppComponent implements OnInit {
             break;
             case 'items': {
                  document.getElementById('items').hidden = false;
-            }
-            break;
-            case 'pb': {
-                 document.getElementById('pb').hidden = false;
             }
             break;
         }
