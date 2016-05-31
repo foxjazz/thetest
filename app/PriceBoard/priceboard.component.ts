@@ -19,10 +19,14 @@ export class PriceBoardComponent implements OnInit {
   constructor(private evePricingService: EvePricingService) { }
   ngOnInit() {
     this.priceBandA = new Array<PriceBand>();
-    document.getElementById('noData').hidden = true;
+   
+    this.DoAllSelections();
+  }
+  private loadLocalData() {
+     document.getElementById('noData').hidden = true;
     this.selSystems = new Array<ISystemShort>();
     let jsondata = localStorage.getItem('Systems');
-    if (jsondata != null && jsondata.indexOf('volumeEntered') > 0)     {
+    if (jsondata != null && jsondata.indexOf('systemid') > 0)     {
       this.selSystems =JSON.parse(jsondata);
     } else {
         document.getElementById('noData').hidden = false;
@@ -37,10 +41,11 @@ export class PriceBoardComponent implements OnInit {
          }  else {  
             this.selEveItems = new Array<ItemType>();
          }
-    this.DoAllSelections();
+    
   }
   refreshData() {
     this.priceBandA = new Array<PriceBand>();
+    this.loadLocalData();
     this.DoAllSelections();
   }
   

@@ -109,7 +109,7 @@ export class RegionComponent implements OnInit {
          console.log('object restry from localstorage');
          console.log (restry);*/
          let jsondata = localStorage.getItem('Systems');
-         if (jsondata != null && jsondata.indexOf('volumeEntered') > 0)     {
+         if (jsondata != null && jsondata.indexOf('systemid') > 0)     {
            this.selSystems =JSON.parse(jsondata);
          }
 // first I  need to know if data is compantible with res
